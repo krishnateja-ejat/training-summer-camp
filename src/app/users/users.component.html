@@ -1,0 +1,415 @@
+<body id="page-top" class="index">
+<div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
+
+<!-- Navigation -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand" href="#page-top">SEMANTIC BITS</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li class="page-scroll">
+          <a href="#courses">Courses</a>
+        </li>
+        <li class="page-scroll">
+          <a href="#contact">Login</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+  <div class="container" id="maincontent" tabindex="-1">
+    <div class="row">
+      <div class="col-lg-12">
+        <img class="img-responsive" src="assets/Images/semanticbits.png" alt="">
+        <div class="intro-text">
+          <h1 class="name">Summer Camp</h1>
+          <span class="skills">Explore - Learn - Experment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Portfolio Grid Section -->
+<section class="success" id="courses">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Courses Offered</h2>
+      </div>
+    </div>
+  <table class="table table-striped" [mfData]="arr_course" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+      <th style="width: 12%">
+        <mfDefaultSorter by="name">Course Name</mfDefaultSorter>
+      </th>
+      <th style="width: 12%">
+        <mfDefaultSorter by="email">Description</mfDefaultSorter>
+      </th>
+      <th style="width: 12%">
+        <mfDefaultSorter by="age">Duration</mfDefaultSorter>
+      </th>
+      <th style="width: 12%">
+        <mfDefaultSorter by="city">NoOfDays</mfDefaultSorter>
+      </th>
+      <th style="width: 12%">
+        <mfDefaultSorter by="name">Coach</mfDefaultSorter>
+      </th>
+      <th style="width: 12%">
+        <mfDefaultSorter by="email">Fee</mfDefaultSorter>
+      </th>
+      <th style="width: 12%">
+        <mfDefaultSorter by="age">TimeSlot</mfDefaultSorter>
+      </th>
+      <th style="width: 15%">
+        <mfDefaultSorter by="city">NoOfStudents</mfDefaultSorter>
+      </th>
+      <th style="width: 15%">
+        <mfDefaultSorter by="city">AvailableSlots</mfDefaultSorter>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of arr_course; let j=index" >
+      <td bgcolor="#ff7f50">{{item.course_name}}</td>
+      <td bgcolor="#ff7f50">{{item.description}}</td>
+      <td bgcolor="#ff7f50">{{item.duration}}</td>
+      <td bgcolor="#ff7f50">{{item.noOfDays}}</td>
+      <td bgcolor="#ff7f50">{{item.Coach}}</td>
+      <td bgcolor="#ff7f50">{{item.fee}}</td>
+      <td bgcolor="#ff7f50">{{item.timeSlot}}</td>
+      <td bgcolor="#ff7f50">{{item.noOfStudents}}</td>
+      <td bgcolor="#ff7f50">{{item.availableSlots}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="call_Student(j)" data-toggle="modal" data-target="#enroll_Modal">Enroll</button></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="4">
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+  </div>
+</section>
+
+
+
+<!-- Contact Section -->
+<section  id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Login</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+        <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+        <form name="sentMessage" id="sentMessage" novalidate>
+          <div class="row control-group">
+            <select id="select" data-target="#myModal">
+              <option value="admin">Admin</option>
+              <option value="student">Student</option>
+            </select>
+            <p class="help-block text-danger"></p>
+          </div>
+
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="email">Email Address</label>
+              <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" placeholder="Password" id="password" required data-validation-required-message="Please enter your phone number.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <div class="row">
+            <div class="form-group col-xs-12">
+              <button type="button" class="btn btn-success btn-lg" (click)="check()">Send</button>
+              <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal"(click)="add()" >ADD Course</button>
+              <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#std_Modal" >New Student</button>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+  <div class="footer-above">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col col-md-4">
+          <h3>Location</h3>
+          <p>13921 Park Center Road
+            Suite 420
+            <br>Herndon, VA 20171</p>
+        </div>
+        <div class="footer-col col-md-4">
+          <h3>Around the Web</h3>
+          <ul class="list-inline">
+            <li>
+              <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+            </li>
+            <li>
+              <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col col-md-4">
+          <h3>About</h3>
+          <p>We develop cutting-edge solutions to complex problems for commercial, academic, and government organizations. Our Agile software engineering methodology enables development of commercial-quality products at an affordable price </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-below">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          Copyright &copy; Semantic Bits 2017
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+  <a class="btn btn-primary" href="#page-top">
+    <i class="fa fa-chevron-up"></i>
+  </a>
+</div>
+
+<!-- Portfolio Modals -->
+data-dismiss="modal"
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Course</h4>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <label for="c_name">Course Name</label>
+          <input type="text" class="form-control" placeholder="Course Name" id="c_name" required data-validation-required-message="Please enter your course name.">
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <input type="text" class="form-control" placeholder="Course description" id="c_description" required data-validation-required-message="Please enter your course description.">
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <input type="text" class="form-control" placeholder="Course description" id="c_duration" value="1Hr" disabled>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <input type="text" class="form-control" placeholder="No of Days" id="c_days" >
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <input type="text" class="form-control" placeholder="coach" id="c_coach" >
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <input type="text" class="form-control" placeholder="fee" id="c_fee" >
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <label >Time Slot</label>
+      <select id="time"  (change)="slot($event)"  >
+        <option *ngFor="let cour of course_slot" value= {{cour}}>
+          {{cour}}
+        </option>
+      </select>
+      <div class="row control-group" >
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <label for="name">Number Of Students</label>
+          <input type="text" class="form-control" placeholder="Number Of Students" id="std_count" required data-validation-required-message="Please enter Student Count.">
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group" >
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <label for="name">Available Slots</label>
+          <input type="text" class="form-control" placeholder="Number Of Slots" id="std_slots" required data-validation-required-message="Please enter no of Slots.">
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="tab()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Student Data-->
+<div class="modal fade" id="std_Modal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Student</h4>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <input type="text" class="form-control" placeholder="First Name" id="f_name" required data-validation-required-message="Please enter your course name.">
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <input type="text" class="form-control" placeholder="Last Name" id="l_name" required data-validation-required-message="Please enter your course description.">
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <input type="email" class="form-control" placeholder="email Id" id="s_email"  >
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <input type="password" class="form-control" placeholder="Password" id="s_pass" >
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="std()">Add</button>
+      </div>
+    </div>
+  </div>
+<!--///////////////////////////////////////////Enrolled Data//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<div class="modal fade" id="enroll_Modal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Enrolled Details</h4>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+
+          <h3>First Name<span class="label label-default">{{enrol_obj.e_fname}}</span></h3>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <h3>Student Last Name<span class="label label-default">{{enrol_obj.e_lname}}</span></h3>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <h3>Course Name<span class="label label-default">{{enrol_obj.e_course}}</span></h3>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <h3>Course Description<span class="label label-default">{{enrol_obj.e_descrip}}</span></h3>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <h3>Course Duration<span class="label label-default">{{enrol_obj.e_duration}}</span></h3>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <h3>Course Coach<span class="label label-default">{{enrol_obj.e_coach}}</span></h3>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <div class="row control-group" >
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <label ></label>
+          <h3><span class="label label-default">{{enrol_obj.e_fee}}</span></h3>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="row control-group" >
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <label >Course Time</label>
+          <h3><span class="label label-default">{{enrol_obj.e_time}}</span></h3>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="del()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
